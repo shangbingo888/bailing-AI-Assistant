@@ -2,6 +2,26 @@
 
 一个基于 AI 的深度研究助手，支持智能搜索、知识图谱、数据可视化等功能。
 
+| 模块 | 说明 |
+|------|------|
+| 深度研究（V2） | 6 个专家 Agent 协作：`ChiefArchitect` / `DeepScout` / `DataAnalyst` / `CodeWizard` / `CriticMaster` / `LeadWriter`，SSE 实时推送研究过程 |
+| 联网检索 | 博查（Bocha）搜索 + 网页正文抽取 |
+| 本地知识库 | 文档上传、切片、向量化入库（Milvus）、语义检索 |
+| 数据可视化 | Agent 生成并执行 Python 代码，产出图表并入报告 |
+| 行业资讯 | 按行业关键词定时采集行业新闻与招投标信息 |
+| 数据库问答 | Text2SQL + 数据探索 + 智能分析 |
+| 会话 / 记忆 | 多会话管理、附件、长期记忆 |
+
+
+| 服务 | 容器名 | 访问地址 |
+|------|--------|----------|
+| PostgreSQL | `industry_postgres` | `localhost:5432`（`postgres` / `postgres123`） |
+| Redis | `industry_redis` | `localhost:6379` |
+| Milvus | `industry_milvus` | `localhost:19530` |
+| Elasticsearch | `industry_elasticsearch` | `localhost:1200`（容器内 9200） |
+| MinIO | `industry_minio` | 控制台 `localhost:9001`（`minioadmin` / `minioadmin`） |
+
+
 ## 1. 环境要求
 
 | 依赖 | 版本要求 | 说明 |
