@@ -55,11 +55,31 @@ USER_ACTION.md
 # Stray exported diagram (personal export, not project source)
 Mermaid Chart - Create complex, visual diagrams with text. A smarter way of creating diagrams.-2025-06-22-075708.svg
 
+# Backend source (not version controlled)
+backend/app/service/
+backend/app/models/
+backend/app/core/
+
 # Large / generated reference & mock data
 data/*.pdf
 skills-lock.json
 frontend/mock/data/*
 
 # Agent / tooling files (auto-generated, not project source)
+.workbuddy/
+docker/
 AGENTS.md
 docs/
+.ua/
+.cursor-01.zip
+第二周：Agent模式.ipynb
+CODEBUDDY.md
+docker-compose.yml
+docker-compose copy.yml
+.docker
+start-services.sh
+skills-lock.json
+data/
+README copy.md
+README.md
+README_NEW.md

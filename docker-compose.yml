@@ -44,7 +44,7 @@ services:
 
   # ==================== Milvus 向量数据库 ====================
   etcd:
-    image: quay.io/coreos/etcd:v3.5.5
+    image: quay.io/coreos/etcd:v3.5.18
     container_name: industry_etcd
     restart: unless-stopped
     environment:
@@ -64,7 +64,7 @@ services:
       - industry_network
 
   minio:
-    image: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    image: minio/minio:RELEASE.2024-05-28T17-19-04Z
     container_name: industry_minio
     restart: unless-stopped
     environment:
@@ -85,7 +85,7 @@ services:
       - industry_network
 
   milvus:
-    image: milvusdb/milvus:v2.3.3
+    image: milvusdb/milvus:v2.5.14
     container_name: industry_milvus
     restart: unless-stopped
     command: ["milvus", "run", "standalone"]

@@ -1,6 +1,3 @@
-# Copyright © 2026 深圳市深维智见教育科技有限公司 版权所有
-# 未经授权，禁止转售或仿制。
-
 """数据库探索路由 - PostgreSQL 可视化 + Text2SQL"""
 import os
 from typing import List, Optional, Any
@@ -232,7 +229,7 @@ async def text2sql_query(
             llm_api_key=config.api_key,
             llm_base_url=config.base_url,
             db_connection_string=db_url if db_url else None,
-            model="qwen-plus"  # 使用 qwen-plus 替代 deepseek，更稳定的 JSON 输出
+            model=os.getenv("LLM_MODEL", "qwen-plus")  # 未配置时回退 qwen-plus
         )
 
         # 执行查询

@@ -111,6 +111,5 @@ React 19 + TypeScript + Vite 6 + Ant Design 5 + React Router 6（`createBrowserR
 
 ### 开发约定
 
-- 所有源文件顶部带版权头注释（`Copyright © 2026 深圳市深维智见教育科技有限公司 版权所有`），新增文件保持一致。
 - 后端模块内 import 一律用顶层绝对路径（`from service.foo import ...`），不加 `app.` 前缀。
 - `frontend/.env` 里 `VITE_API_BASE` / `VITE_API_PROXY` 决定 vite proxy 的前缀与目标，默认都指向 `http://localhost:8000/`。

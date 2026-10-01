@@ -1,6 +1,3 @@
-# Copyright © 2026 深圳市深维智见教育科技有限公司 版权所有
-# 未经授权，禁止转售或仿制。
-
 """
 DeepResearch V2.0 端到端测试
 
@@ -40,25 +37,26 @@ async def test_full_workflow():
     print("=" * 60)
 
     # 检查环境变量
-    dashscope_key = os.getenv("DASHSCOPE_API_KEY")
+    dashscope_key = os.getenv("LLM_API_KEY") or os.getenv("DASHSCOPE_API_KEY")
     bocha_key = os.getenv("BOCHA_API_KEY")
 
     if not dashscope_key:
-        print("❌ 错误: 未设置 DASHSCOPE_API_KEY 环境变量")
+        print("❌ 错误: 未设置 LLM_API_KEY（或 DASHSCOPE_API_KEY）环境变量")
         return False
 
     if not bocha_key:
         print("❌ 错误: 未设置 BOCHA_API_KEY 环境变量")
         return False
 
-    print(f"✅ DASHSCOPE_API_KEY: {dashscope_key[:8]}...")
+    print(f"✅ LLM_API_KEY: {dashscope_key[:8]}...")
     print(f"✅ BOCHA_API_KEY: {bocha_key[:8]}...")
 
     # 创建服务
     service = DeepResearchV2Service(
         llm_api_key=dashscope_key,
         search_api_key=bocha_key,
-        model="qwen-max",
+        model=os.getenv("LLM_MODEL", "qwen-max"),
+        llm_base_url=os.getenv("LLM_BASE_URL"),
         max_iterations=2  # 减少迭代次数以加速测试
     )
 
@@ -205,9 +203,9 @@ async def test_individual_agents():
     print("Agent 单元测试")
     print("=" * 60)
 
-    dashscope_key = os.getenv("DASHSCOPE_API_KEY", "")
+    dashscope_key = os.getenv("LLM_API_KEY") or os.getenv("DASHSCOPE_API_KEY", "")
     bocha_key = os.getenv("BOCHA_API_KEY", "")
-    llm_base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    llm_base_url = os.getenv("LLM_BASE_URL") or "https://dashscope.aliyuncs.com/compatible-mode/v1"
 
     if not dashscope_key or not bocha_key:
         print("❌ 缺少必要的环境变量")
